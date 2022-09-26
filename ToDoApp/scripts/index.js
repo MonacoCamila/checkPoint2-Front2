@@ -12,7 +12,7 @@ async function login(event) {
 
   //fazer login do usuario na API  
 
-  const response = await fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/usuarios/login', {
+  const response = await fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login', {
       method: 'POST',
       headers: {
           'content-type': 'application/json',
