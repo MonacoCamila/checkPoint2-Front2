@@ -4,11 +4,52 @@ async function login(event) {
   //pegar infos do formulario 
   const email = document.getElementById('email');
   const password = document.getElementById('password');
+  const botaoLogin = document.getElementById('botaoLogin');
   
   const data ={
       email,
       password
   }
+
+  // variaveis de controle para validacoes do form login 
+  let emailValido = false;
+  let passwordValido = false;
+  let minPasswordCaracteres = 4;
+  let loginUsuarioJson = '';  
+
+  botaoLogin.innerText = 'bloqueado';
+  //add um evento de click no botao login
+  botaoLogin.addEventListener('click',(evento)=> {
+
+    //busca valores atualizados do login 
+    emailLogin = document.getElementById('email');
+    passwordLogin = document.getElementById('password');
+
+    if(validaLogin()){
+        evento.preventDefault();
+
+        //normalizando os inputs do Login 
+
+        emailLogin = normalizaUsandoTrim(emailLogin.value);
+        passwordLogin = normalizaUsandoTrim(passwordLogin.value);
+
+        // atribui as informacoes normalizadas ao objeto JS 
+
+        loginUsuario.email = emailLogin;
+        loginUsuario.password = passwordLogin;
+
+        // converte o objeto JS para o Json 
+
+        loginUsuarioJson = JSON.stringify(loginUsuario)
+        console.log("objeto usuario em Json\n")
+        console.log(loginUsuarioJson);
+
+    } else{
+        console.log('login invalido');
+    }
+
+  });
+
 
   //fazer login do usuario na API  
 
