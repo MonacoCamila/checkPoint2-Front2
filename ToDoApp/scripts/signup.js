@@ -20,7 +20,7 @@ function signup(event) {
 
     // 2. Fazer o cadastro do usuário na API
 
-    fetch('https://ctd-todo-api.herokuapp.com/v1/usuarios',{
+    fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/usuarios',{
         method: 'POST',
         headers: {
             'content-type': 'application/json',

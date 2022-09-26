@@ -5,7 +5,7 @@ window.onload = () => {
 
 function getUser() {
     //pegando infos do usuario logado
-    fetch('https://ctd-todo-api.herokuapp.com/v1/usuarios/getMe', {
+    fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/usuarios/getMe', {
         method: 'GET',
         headers:{
             authorization: localStorage.getItem('token')
@@ -25,7 +25,7 @@ function getUser() {
 }
 
 function getTarefas() {
-    fetch('https://ctd-todo-api.herokuapp.com/v1/tarefas', {
+    fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/tarefas', {
         method: 'GET',
         headers:{
             authorization: localStorage.getItem('token')
