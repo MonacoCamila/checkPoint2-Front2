@@ -1,4 +1,6 @@
+
 function login(event) {
+  console.log('iniciando login')
   event.preventDefault();
 
   //pegar infos do formulario 
@@ -79,7 +81,9 @@ function login(event) {
   
 //fazer login do usuario na API  
 
-const response = fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login', {
+console.log('chamando fetch')
+
+fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login', {
       method: 'POST',
       headers: {
           'content-type': 'application/json',
@@ -87,19 +91,18 @@ const response = fetch('https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login', {
       body: JSON.stringify(data)
 
   }).then((response) => {
-      return response.json();
-      
+      let token = response.json().jwt;
+      console.log('token', token); 
+      localStorage.setItem('token', token);
+      window.location.href = 'tarefas.html';
+
   }).catch((error) => {
       console.log(error);
   })
 
-  console.log (response);
-
-  //salvar o token retornado no browser
-  localStorage.setItem('token, response.jwt');
-
-  //redirecionar para a lista de tarefas
-  window.location.href = 'tarefas.html';
+   
 
 }
+
+document.querySelector('form').addEventListener('submit', login);
 

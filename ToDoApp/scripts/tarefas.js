@@ -15,6 +15,7 @@ onload = function(){
         //buscar dados do usuario
         buscaDadosUsuario();
 
+
     }
 }
 
@@ -32,19 +33,18 @@ async function buscaDadosUsuario() {
             if(resposta.status==200 || resposta.status==201) {
             let respostaJs = await resposta.json();
             console.log(respostaJs);
-            }
-            
-            manipulaDadosUsuario(respostaJS);
-            
-            else {
+            }else {
                 throw "ocorreu algum erro"
             } 
-                  
+            
+            manipulaDadosUsuario(respostaJS);           
+                    
 
             
     } catch (error){
         alert(error)
-        console.log(error);    
+        console.log(error);   
+    } 
 
 }
 
